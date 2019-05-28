@@ -3,46 +3,55 @@
 if (isset($_REQUEST['analyze'])) {
     
     function word_validation($string){
+
         if (!empty($string)) {
             if (strlen($string) > 2) {
                 if (preg_match('/^[A-zšđčćžŠĐČĆŽ]+$/', $string)) {
                     return $string;
-                }else {
-                    return 'Riječ za analizu ne smije sadržavati brojeve i znakove';
+                }else{
+                    return 'Riječ za analizu ne smije sadržavati brojeve ili posebne znakove.';
                 }
-            }else {
+            }else{
                 return 'Riječ za analizu mora sadržavati najmanje 3 slova';
             }
-        }else {
-            return 'Morate upisati riječ u polje';
+        }else{
+            
         }
     }
-
+    //To UPPERCASE
     function to_uppercase($string){
         return strtoupper($string);
     }
-    function separate_into_letters($string){   //riječ treba razdvojiti na slova ... npr mirko ->> m,i,r,k,o  ALI ako postoji lj ili nj onda je to jedna rije i piše se lj npr.. ljubav -->lj,u,b,a,v
-        //str len vidimo koliko je dugačak pa onda svaki char ipsiujemo []
-        // ili sa ubstr uzme samo jedan karakter sa for petljom
-        //funkcija implode()
-                
+    //RAZDVOJI SA |
+    function separate_into_letters($string){
+        $len = strlen($string);
+        for($i = 0; $i < $len; ++$i)
+            echo $string[$i]."\n |";
     }
+    //Samoglasnici +
     function vowels($string){
-        //izbrojati samoglasnike
-        //if a ei ou count = +1 else
-        
+        preg_match_all('/[aeiou]/i', $string, $matches);
+        return count($matches[0]);
     }
+    //Suglasnici +
     function consonants($string){
-        //izbrojati suglasnike
-        
+        preg_match_all('/[b-df-hj-np-tv-zč]/i', $string, $matches);
+        return count($matches[0]);
+        }
+   //CRO letters
+  //  function cro_letters($string){
+   //     preg_match_all('/\s+/', $string, $matches);
+    //    $result = array_map('strlen', $matches[0]);
+    //    return $result[0];
+    //    }
+    function pr($string){
+        echo $word = ' Velika slova: '.to_uppercase($_REQUEST['word']);
+        echo $word = ' Po slovima: '.separate_into_letters($_REQUEST['word']);
+        echo $word = ' Broj samoglasnika: '.vowels($_REQUEST['word']);
+        echo $word = ' Broj suglasnika: '.consonants($_REQUEST['word']);
     }
-    function cro_letters($string){
-        //ako u riječi postoje hrvatska slova onda ih treba ispisati, ako ne postoje onda reći ne postoje hrv slova
-        
-    }
-    function print($string){   //da ispisuje sve gornje funkcije
-        
-    }
+   
+
 }
 
 ?>

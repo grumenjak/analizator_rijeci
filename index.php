@@ -1,9 +1,8 @@
 <?php
-include 'functions.php';
+    include 'functions.php';
 ?>
-
 <!DOCTYPE html>
-<html lang="hr">       
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +10,9 @@ include 'functions.php';
     <title>Analizator riječi</title>
 </head>
 <body>
-    <table style="max-width:600px;" cellpadding="5" cellspacing="1" bgcolor="#666666" align="center">
+    <table style="max-width:600px;" cellpadding="5" cellspacing="1" bgcolor="#555555" align="center">
         <tr bgcolor="#ffffff">
-            <th><h2>Analizator riječi<h2></th>
+            <th><h2>Analizator riječi</h2></th>
         </tr>
         <tr bgcolor="#ffffff">
             <td>
@@ -31,12 +30,12 @@ include 'functions.php';
                         </tr>
                         <tr>
                             <td align="center">
-                                <input type="text" name="word" id="word" size="40">                            
+                                <input type="text" name="word" id="word" size="40">
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                                <input type="submit" name="analyze" id="analyze" value="Analiziraj">                            
+                                <input type="submit" name="analyze" id="analyze" value="Analiziraj!">
                             </td>
                         </tr>
                     </table>
